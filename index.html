@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gran Rifa: Messi vs Ronaldo</title>
+    <style>
+        :root {
+            --messi-soft: #d0e7ff;
+            --ronaldo-soft: #fdf5e6;
+            --messi-blue: #75b7e9;
+            --ronaldo-gold: #bfa35a;
+        }
+
+        body {
+            font-family: 'Times New Roman', serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a;
+            display: flex;
+            justify-content: center;
+        }
+
+        .main-card {
+            max-width: 480px;
+            width: 100%;
+            background: #ffffff;
+            text-align: center;
+            min-height: 100vh;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        }
+
+        /* Banner Superior Principal */
+        .hero-banner {
+            width: 100%;
+            height: 180px;
+            background: #000 url('fondo.jpg') no-repeat center top;
+            background-size: cover;
+            display: flex;
+            align-items: flex-end;
+            border-bottom: 3px solid #000;
+        }
+
+        .title-overlay {
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            width: 100%;
+            padding: 8px 0;
+            font-size: 1.6em;
+            font-weight: bold;
+        }
+
+        .content { padding: 15px; }
+
+        /* Sección de Fotos de Premios Arriba */
+        .prizes-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin: 10px 0;
+        }
+
+        .prize-box {
+            border: 2px solid #000;
+            border-radius: 8px;
+            padding: 5px;
+            background: #fff;
+        }
+
+        .prize-img {
+            width: 100%;
+            height: 100px;
+            object-fit: contain;
+        }
+
+        .lottery-info {
+            font-size: 10px;
+            font-weight: bold;
+            display: block;
+            margin-top: 3px;
+            color: #d32f2f;
+        }
+
+        .price-tag {
+            background: #000;
+            color: #fff;
+            padding: 8px 25px;
+            font-weight: bold;
+            display: inline-block;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+
+        /* Títulos de las tablas de números */
+        .section-header {
+            background: #333;
+            color: #fff;
+            padding: 5px;
+            margin: 15px 0 5px 0;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 4px 4px 0 0;
+        }
+
+        /* Cuadrículas de números */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(10, 1fr);
+            border: 1px solid #000;
+            background: #000;
+            gap: 1px;
+            margin-bottom: 10px;
+        }
+
+        .cell {
+            padding: 10px 0;
+            font-size: 13px;
+            font-weight: bold;
+            cursor: pointer;
+            color: #000;
+        }
+
+        .messi-range { background-color: var(--messi-soft); }
+        .ronaldo-range { background-color: var(--ronaldo-soft); }
+
+        .sold {
+            background-color: #444 !important;
+            color: #888 !important;
+            cursor: not-allowed;
+            text-decoration: line-through;
+        }
+
+        /* Modal */
+        .modal { display: none; position: fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:1000; }
+        .modal-content { background:#fff; width: 85%; max-width: 320px; margin: 20% auto; padding: 20px; border-radius: 10px; text-align: left; }
+        input { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; font-size: 16px; }
+        .btn-wa { background:#25d366; color:#fff; display:block; padding:15px; text-decoration:none; border-radius:5px; font-weight:bold; text-align:center; margin-top:10px; }
+    </style>
+</head>
+<body>
+
+<div class="main-card">
+    <div class="hero-banner">
+        <div class="title-overlay">GRAN RIFA</div>
+    </div>
+
+    <div class="content">
+        <p style="margin: 0;">📅 <strong>SORTEO: 15 DE MAYO</strong></p>
+
+        <div class="prizes-grid">
+            <div class="prize-box" style="border-top: 5px solid var(--messi-blue);">
+                <img src="messi.jpg" class="prize-img">
+                <p style="font-size:11px; margin:2px 0;">Messi (01-50)</p>
+                <span class="lottery-info">TÁCHIRA "A"</span>
+            </div>
+            <div class="prize-box" style="border-top: 5px solid var(--ronaldo-gold);">
+                <img src="ronaldo.jpg" class="prize-img">
+                <p style="font-size:11px; margin:2px 0;">Ronaldo (01-50)</p>
+                <span class="lottery-info">TÁCHIRA "B"</span>
+            </div>
+        </div>
+
+        <div class="price-tag">VALOR: 1$ (BCV)</div>
+
+        <div class="section-header">LISTA MESSI - TERMINAL A</div>
+        <div class="grid-container" id="gridMessi"></div>
+
+        <div class="section-header">LISTA RONALDO - TERMINAL B</div>
+        <div class="grid-container" id="gridRonaldo"></div>
+
+        <div style="margin-top: 20px; font-size: 13px; border-top: 1px solid #eee; padding-top: 10px;">
+            <strong>PAGO MÓVIL PROVINCIAL</strong><br>
+            0414-9778514 | V-14806785
+        </div>
+    </div>
+</div>
+
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <h2 id="modalTitle" style="margin:0; text-align: center;"></h2>
+        <p id="modalInfo" style="text-align: center; font-weight: bold; color: #d32f2f; margin: 10px 0;"></p>
+        
+        <label>Nombre y Apellido:</label>
+        <input type="text" id="userName" placeholder="Ej: Juan Pérez">
+        <label>Cédula:</label>
+        <input type="number" id="userId" placeholder="Ej: 12345678">
+
+        <a href="#" onclick="sendWhatsApp()" class="btn-wa">REPORTAR PAGO</a>
+        <button onclick="closeModal()" style="width:100%; margin-top:10px; border:none; background:none; color:red; cursor:pointer;">Cancelar</button>
+    </div>
+</div>
+
+<script>
+    // --- GESTIÓN DE VENDIDOS (EDITAR AQUÍ) ---
+    const vendidosMessi = ["01", "07"]; 
+    const vendidosRonaldo = ["05", "50"]; 
+
+    let selectedNumber = "";
+    let selectedGroup = "";
+    let selectedLottery = "";
+
+    function generateGrid(containerId, isMessi) {
+        const container = document.getElementById(containerId);
+        const listaVendidos = isMessi ? vendidosMessi : vendidosRonaldo;
+        
+        for (let i = 1; i <= 50; i++) {
+            const num = i.toString().padStart(2, '0');
+            const cell = document.createElement('div');
+            
+            if (listaVendidos.includes(num)) {
+                cell.className = 'cell sold';
+                cell.innerText = "X";
+            } else {
+                cell.className = 'cell ' + (isMessi ? 'messi-range' : 'ronaldo-range');
+                cell.innerText = num;
+                cell.onclick = () => openModal(num, isMessi);
+            }
+            container.appendChild(cell);
+        }
+    }
+
+    function openModal(num, isMessi) {
+        selectedNumber = num;
+        selectedGroup = isMessi ? "MESSI (Terminal A)" : "RONALDO (Terminal B)";
+        selectedLottery = isMessi ? "Táchira A" : "Táchira B";
+        
+        document.getElementById('modalTitle').innerText = "Número: " + num;
+        document.getElementById('modalInfo').innerText = "Juegas por: " + selectedGroup;
+        document.getElementById('modal').style.display = "block";
+    }
+
+    function closeModal() {
+        document.getElementById('modal').style.display = "none";
+        document.getElementById('userName').value = "";
+        document.getElementById('userId').value = "";
+    }
+
+    function sendWhatsApp() {
+        const name = document.getElementById('userName').value;
+        const id = document.getElementById('userId').value;
+        if (!name || !id) { alert("Ingresa tus datos"); return; }
+
+        const msg = encodeURIComponent(
+            `*REPORTE DE PAGO RIFA*\n` +
+            `--------------------------\n` +
+            `*Sorteo:* ${selectedGroup}\n` +
+            `*Número:* ${selectedNumber}\n` +
+            `*Nombre:* ${name}\n` +
+            `*Cédula:* ${id}\n` +
+            `--------------------------\n` +
+            `Adjunto mi comprobante de pago por 1$ (BCV).`
+        );
+
+        window.open(`https://wa.me/584149778514?text=${msg}`, '_blank');
+        closeModal();
+    }
+
+    // Iniciar las tablas
+    generateGrid('gridMessi', true);
+    generateGrid('gridRonaldo', false);
+</script>
+
+</body>
+</html>
