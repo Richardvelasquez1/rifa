@@ -71,14 +71,6 @@
             object-fit: contain;
         }
 
-        .lottery-info {
-            font-size: 10px;
-            font-weight: bold;
-            display: block;
-            margin-top: 3px;
-            color: #d32f2f;
-        }
-
         .price-tag {
             background: #000;
             color: #fff;
@@ -126,15 +118,14 @@
             text-decoration: line-through;
         }
 
-        /* Modal Actualizado */
+        /* Modal */
         .modal { display: none; position: fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:1000; overflow-y: auto; }
-        .modal-content { background:#fff; width: 85%; max-width: 320px; margin: 10% auto; padding: 20px; border-radius: 10px; text-align: left; }
+        .modal-content { background:#fff; width: 90%; max-width: 350px; margin: 5% auto; padding: 20px; border-radius: 10px; text-align: left; }
         
-        input[type="text"], input[type="number"], input[type="file"] { 
-            width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; font-size: 14px; 
+        input, select { 
+            width: 100%; padding: 10px; margin: 5px 0 12px 0; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; font-size: 14px; 
         }
 
-        /* Estilo Botón WhatsApp Deshabilitado */
         .btn-wa { 
             background:#ccc; 
             color:#fff; 
@@ -145,106 +136,101 @@
             font-weight:bold; 
             text-align:center; 
             margin-top:10px;
-            pointer-events: none; /* Bloquea el click */
+            pointer-events: none;
             transition: 0.3s;
         }
 
-        /* Estilo Botón WhatsApp Activo */
         .btn-wa.active {
             background: #25d366;
             pointer-events: auto;
         }
 
-        #preview {
-            width: 100%;
-            height: 80px;
-            object-fit: contain;
-            display: none;
-            margin-top: 5px;
-            border: 1px dashed #ccc;
-        }
-
-        label { font-weight: bold; font-size: 13px; }
+        label { font-weight: bold; font-size: 12px; color: #333; text-transform: uppercase; }
+        .bank-data { background: #f9f9f9; padding: 10px; border-radius: 5px; margin-bottom: 15px; border-left: 4px solid #bfa35a; font-size: 13px; }
+        .whatsapp-note { background: #e7fbe2; padding: 8px; border-radius: 5px; color: #1e7e34; font-size: 12px; font-weight: bold; text-align: center; border: 1px solid #c3e6cb; margin-top: 5px;}
     </style>
 </head>
 <body>
 
 <div class="main-card">
-    <div class="hero-banner">
-        <div class="title-overlay">GRAN RIFA</div>
-    </div>
+    <div class="hero-banner"><div class="title-overlay">GRAN RIFA</div></div>
 
     <div class="content">
-        <p style="margin: 0;">📅 <strong>SORTEO: 15 DE MAYO</strong></p>
-
+        <p>📅 <strong>SORTEO: 15 DE MAYO</strong></p>
         <div class="prizes-grid">
             <div class="prize-box" style="border-top: 5px solid var(--messi-blue);">
                 <img src="Messi.jpg" class="prize-img">
-                <p style="font-size:11px; margin:2px 0;">Messi (01-50)</p>
-                <span class="lottery-info">TÁCHIRA "A"</span>
+                <p style="font-size:11px;">Messi (01-50)</p>
             </div>
             <div class="prize-box" style="border-top: 5px solid var(--ronaldo-gold);">
                 <img src="Ronaldo.jpg" class="prize-img">
-                <p style="font-size:11px; margin:2px 0;">Ronaldo (01-50)</p>
-                <span class="lottery-info">TÁCHIRA "B"</span>
+                <p style="font-size:11px;">Ronaldo (01-50)</p>
             </div>
         </div>
-
         <div class="price-tag">VALOR: 1$ (BCV)</div>
-
-        <div class="section-header">LISTA MESSI - TERMINAL A</div>
+        <div class="section-header">LISTA MESSI</div>
         <div class="grid-container" id="gridMessi"></div>
-
-        <div class="section-header">LISTA RONALDO - TERMINAL B</div>
+        <div class="section-header">LISTA RONALDO</div>
         <div class="grid-container" id="gridRonaldo"></div>
-
-        <div style="margin-top: 20px; font-size: 13px; border-top: 1px solid #eee; padding-top: 10px;">
-            <strong>PAGO MÓVIL PROVINCIAL</strong><br>
-            0414-9778514 | V-14806785
-        </div>
     </div>
 </div>
 
-<!-- Modal Modificado -->
 <div id="modal" class="modal">
     <div class="modal-content">
         <h2 id="modalTitle" style="margin:0; text-align: center;"></h2>
-        <p id="modalInfo" style="text-align: center; font-weight: bold; color: #d32f2f; margin: 10px 0;"></p>
+        <p id="modalInfo" style="text-align: center; font-weight: bold; color: #d32f2f; margin: 5px 0;"></p>
         
-        <label>Nombre y Apellido:</label>
-        <input type="text" id="userName" placeholder="Ej: Juan Pérez" oninput="validateForm()">
+        <div class="bank-data">
+            <strong>DATOS DE PAGO MÓVIL:</strong><br>
+            Provincial | 0414-9778514 | V-14806785
+        </div>
+
+        <label>Nombre del Concursante:</label>
+        <input type="text" id="userName" placeholder="Nombre y Apellido" oninput="validateForm()">
         
-        <label>Teléfono:</label>
-        <input type="number" id="userId" placeholder="Ej: 04149778514" oninput="validateForm()">
+        <label>Banco de Origen:</label>
+        <select id="userBank" onchange="validateForm()">
+            <option value="">Seleccione Banco</option>
+            <option value="Provincial">Provincial</option>
+            <option value="Banesco">Banesco</option>
+            <option value="Mercantil">Mercantil</option>
+            <option value="Venezuela">Venezuela</option>
+            <option value="BNC">BNC</option>
+            <option value="Otro">Otro</option>
+        </select>
 
-        <label style="color: #25d366;">Adjuntar Capture de Pago:</label>
-        <input type="file" id="paymentCapture" accept="image/*" onchange="handleFile(this)">
-        <img id="preview" alt="Vista previa">
+        <label>Cédula del Titular (de la cuenta):</label>
+        <input type="number" id="userCedula" placeholder="Ej: 12345678" oninput="validateForm()">
 
-        <p id="alert-msg" style="font-size: 11px; color: #666; margin: 5px 0;">*Debes adjuntar el capture para poder reportar.</p>
+        <label>Teléfono del Titular (de la cuenta):</label>
+        <input type="number" id="userPhone" placeholder="Ej: 04121234567" oninput="validateForm()">
 
-        <a href="#" id="btnSend" onclick="sendWhatsApp()" class="btn-wa">REPORTAR POR WHATSAPP</a>
+        <label>Monto Transferido (Bs):</label>
+        <input type="number" id="userAmount" placeholder="Ej: 45.50" oninput="validateForm()">
+
+        <div class="whatsapp-note">
+            Recuerda enviar el capture de la transferencia desde WhatsApp.
+        </div>
+
+        <a href="#" id="btnSend" onclick="sendWhatsApp()" class="btn-wa">REPORTAR PAGO</a>
         <button onclick="closeModal()" style="width:100%; margin-top:10px; border:none; background:none; color:red; cursor:pointer; font-size: 14px;">Cancelar</button>
     </div>
 </div>
 
 <script>
-    // --- GESTIÓN DE VENDIDOS ---
-    const vendidosMessi = ["10", "15", "11", "24", "25", "32", "34", "44", "48", "14", "40", "29", "42", "17", "23", "27", "36","26","28", "31", "37", "49", "08", ]; 
-    const vendidosRonaldo = ["15", "10", "24", "25", "34", "44", "48", "17", "22", "27", "42", "30", "28", "06" ]; 
+    // --- GESTIÓN DE VENDIDOS (EDITAR AQUÍ) ---
+    const vendidosMessi = ["10", "15", "11", "24", "25", "32", "34", "44", "48", "14", "40", "29", "42", "17", "23", "27", "36","26","28", "31", "37", "49", "08"]; 
+    const vendidosRonaldo = ["15", "10", "24", "25", "34", "44", "48", "17", "22", "27", "42", "30", "28", "06"]; 
 
     let selectedNumber = "";
     let selectedGroup = "";
-    let hasImage = false;
 
     function generateGrid(containerId, isMessi) {
         const container = document.getElementById(containerId);
         const listaVendidos = isMessi ? vendidosMessi : vendidosRonaldo;
-        
         for (let i = 1; i <= 50; i++) {
             const num = i.toString().padStart(2, '0');
             const cell = document.createElement('div');
-            
             if (listaVendidos.includes(num)) {
                 cell.className = 'cell sold';
                 cell.innerText = "X";
@@ -260,7 +246,6 @@
     function openModal(num, isMessi) {
         selectedNumber = num;
         selectedGroup = isMessi ? "MESSI (Terminal A)" : "RONALDO (Terminal B)";
-        
         document.getElementById('modalTitle').innerText = "Número: " + num;
         document.getElementById('modalInfo').innerText = "Juegas por: " + selectedGroup;
         document.getElementById('modal').style.display = "block";
@@ -270,70 +255,52 @@
     function closeModal() {
         document.getElementById('modal').style.display = "none";
         document.getElementById('userName').value = "";
-        document.getElementById('userId').value = "";
-        document.getElementById('paymentCapture').value = "";
-        document.getElementById('preview').style.display = "none";
-        hasImage = false;
+        document.getElementById('userAmount').value = "";
+        document.getElementById('userBank').value = "";
+        document.getElementById('userCedula').value = "";
+        document.getElementById('userPhone').value = "";
         validateForm();
     }
 
-    // Maneja la imagen y muestra vista previa
-    function handleFile(input) {
-        const preview = document.getElementById('preview');
-        if (input.files && input.files[0]) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                preview.src = e.target.result;
-                preview.style.display = "block";
-                hasImage = true;
-                validateForm();
-            }
-            reader.readAsDataURL(input.files[0]);
-        } else {
-            hasImage = false;
-            preview.style.display = "none";
-            validateForm();
-        }
-    }
-
-    // Valida que todo esté lleno para activar el botón
     function validateForm() {
         const name = document.getElementById('userName').value.trim();
-        const id = document.getElementById('userId').value.trim();
+        const amount = document.getElementById('userAmount').value.trim();
+        const bank = document.getElementById('userBank').value;
+        const cedula = document.getElementById('userCedula').value.trim();
+        const phone = document.getElementById('userPhone').value.trim();
         const btn = document.getElementById('btnSend');
-        const alertMsg = document.getElementById('alert-msg');
 
-        if (name !== "" && id !== "" && hasImage) {
+        if (name && amount && bank && cedula && phone) {
             btn.classList.add('active');
-            alertMsg.innerText = "✅ Todo listo. Al dar clic, recuerda adjuntar la imagen en el chat.";
-            alertMsg.style.color = "#25d366";
         } else {
             btn.classList.remove('active');
-            alertMsg.innerText = "*Debes llenar tus datos y adjuntar el capture.";
-            alertMsg.style.color = "#666";
         }
     }
 
     function sendWhatsApp() {
         const name = document.getElementById('userName').value;
-        const id = document.getElementById('userId').value;
+        const amount = document.getElementById('userAmount').value;
+        const bank = document.getElementById('userBank').value;
+        const cedula = document.getElementById('userCedula').value;
+        const phone = document.getElementById('userPhone').value;
 
         const msg = encodeURIComponent(
             `*REPORTE DE PAGO RIFA*\n` +
             `--------------------------\n` +
-            `*Sorteo:* ${selectedGroup}\n` +
             `*Número:* ${selectedNumber}\n` +
-            `*Nombre:* ${name}\n` +
-            `*Teléfono:* ${id}\n` +
+            `*Sorteo:* ${selectedGroup}\n` +
             `--------------------------\n` +
-            `AQUÍ TENGO EL CAPTURE DE MI PAGO (Lo envío a continuación).`
+            `*Concursante:* ${name}\n` +
+            `*Banco Origen:* ${bank}\n` +
+            `*Cédula Titular:* ${cedula}\n` +
+            `*Teléfono Titular:* ${phone}\n` +
+            `*Monto Pagado:* Bs. ${amount}\n` +
+            `--------------------------\n` +
+            `_Adjunto el capture del pago móvil a continuación:_`
         );
 
-        // Abrir WhatsApp
         window.open(`https://wa.me/584149778514?text=${msg}`, '_blank');
-        
-        // Opcional: Cerrar el modal después de enviar
-        setTimeout(closeModal, 500);
+        closeModal();
     }
 
     generateGrid('gridMessi', true);
