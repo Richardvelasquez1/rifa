@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelos de Cocinas - MauriNept</title>
+    <style>
+        /* Estilo profesional coherente con MauriNept */
+        body { 
+            font-family: 'Segoe UI', Arial, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            color: #333333; 
+            background-color: #FAF9F6; 
+        }
+ 
+      
+        /* Encabezado: Logo + Nombre + Slogan */
+        header { 
+            display: flex; 
+            align-items: center; 
+            border-bottom: 3px solid #5D4037; /* Marrón madera oscura */
+            padding-bottom: 20px; 
+            background-color: #ffffff;
+            padding-left: 15px;
+        }
+
+        header h1 { color: #5D4037; margin-bottom: 5px; }
+        header p { color: #8B4513; margin-top: 0; }
+
+        .logo { 
+            width: 100px; 
+            height: 100px; 
+            margin-right: 20px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+        }
+        
+        /* Botones de Menú */
+        nav { 
+            margin: 5px 0 20px 0; 
+            background: #5D4037; /* Fondo oscuro para el menú */
+            padding: 12px; 
+            text-align: center; 
+        }
+
+        nav a { 
+            margin: 0 15px; 
+            text-decoration: none; 
+            color: #F5F5DC; /* Color crema para las letras */
+            font-weight: bold; 
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+
+        nav a:hover { color: #ffffff; }
+
+        /* Contenido Principal */
+        .contenido { display: flex; gap: 20px; margin-top: 20px; }
+        .texto-principal { flex: 2; padding: 10px; }
+        .texto-principal h2 { color: #5D4037; }
+
+        .imagen-destacada { 
+            flex: 1; 
+            border: 2px solid #D2B48C; /* Color canela suave */
+            padding: 10px; 
+            text-align: center; 
+            background: white;
+        }
+        .intro { text-align: center; margin-bottom: 40px; }
+        .intro h2 { color: #8B4513; font-size: 28px; }
+        .intro p { color: #666; font-style: italic; }
+
+        /* Tarjetas de Modelos */
+        .tarjeta-cocina {
+            display: flex;
+            background: white;
+            margin-bottom: 30px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #D2B48C;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.05);
+        }
+
+        .img-container { width: 45%; background: #eee; }
+        .img-container img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+        .info-container {
+            width: 55%;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .info-container h3 { 
+            color: #5D4037; 
+            margin-top: 0; 
+            font-size: 22px;
+            border-left: 4px solid #D2B48C;
+            padding-left: 15px;
+        }
+
+        .info-container p { line-height: 1.7; color: #444; font-size: 15px; }
+
+        /* Pie de página */
+        footer {
+            background: #5D4037;
+            color: #F5F5DC;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+        }
+
+        .social-links { margin-top: 15px; }
+        .social-links a {
+            color: #D2B48C;
+            text-decoration: none;
+            margin: 0 12px;
+            font-weight: bold;
+        }
+        .social-links a:hover { color: #ffffff; }
+
+    </style>
+</head>
+<body>
+
+  <header>
+        <div class="logo">
+            <img src="Logomaurynept2.png" alt="Logo" width="100">
+        </div>
+        <div>
+            <h1>MAURINEPT</h1>
+            <p><i>Innovando tu espacio, pieza a pieza</i></p>
+        </div>
+    </header>
+    
+    
+    <nav>
+        <a href="index.html">Inicio</a>
+    </nav>
+
+    <div class="main-container">
+        <div class="intro">
+            <h2>Nuestra Colección de Cocinas</h2>
+            <p>Diseños pensados para la funcionalidad y la elegancia en cada hogar de Mérida.</p>
+        </div>
+
+        <div class="tarjeta-cocina">
+            <div class="img-container">
+                <img src="Cocina_minimalista.jpeg" alt="Cocina Minimalista">
+            </div>
+            <div class="info-container">
+                <h3>1. Estilo Minimalista</h3>
+                <p>Nuestra línea minimalista se enfoca en la pureza de las líneas y la ausencia de tiradores visibles (sistema Gola). Utilizamos melaminas de alto brillo y herrajes premium que garantizan un ambiente despejado, moderno y altamente sofisticado.</p>
+            </div>
+        </div>
+
+        <div class="tarjeta-cocina">
+            <div class="img-container">
+                <img src="Cocina_rustica.jpeg" alt="Cocina Rústica Moderna">
+            </div>
+            <div class="info-container">
+                <h3>2. Rústico Contemporáneo</h3>
+                <p>Ideal para quienes aman la calidez de la madera natural sin renunciar a la tecnología. Este modelo combina vetas de madera pronunciadas con encimeras de granito oscuro, creando un espacio acogedor y resistente al paso del tiempo.</p>
+            </div>
+        </div>
+
+        <div class="tarjeta-cocina">
+            <div class="img-container">
+                <img src="Cocina_isla.jpeg" alt="Cocina con Isla">
+            </div>
+            <div class="info-container">
+                <h3>3. Funcional con Isla Central</h3>
+                <p>Diseñada para familias activas que ven la cocina como el corazón del hogar. Esta distribución maximiza el almacenamiento con gavetas extraíbles y ofrece una estación de trabajo central que sirve tanto para cocinar como para desayunador.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p><strong>MauriNept Carpintería</strong> - Mérida, Venezuela</p>
+        <p><small>Ubicados en el sector "Don Luis"</small></p>
+        <div class="social-links">
+            <a href="https://instagram.com/tu_usuario">Instagram</a>
+            <a href="https://facebook.com/tu_pagina">Facebook</a>
+            <a href="https://wa.me/58xxxxxx">WhatsApp</a>
+        </div>
+    </footer>
+
+</body>
+</html>

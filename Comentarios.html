@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comentarios - MauriNept</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Arial, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            color: #333333; 
+            background-color: #FAF9F6; 
+        }
+
+        header { 
+            display: flex; 
+            align-items: center; 
+            border-bottom: 3px solid #5D4037; 
+            padding: 20px 5%; 
+            background-color: #ffffff;
+        }
+
+        header h1 { color: #5D4037; margin: 0; }
+
+        nav { 
+            background: #5D4037; 
+            padding: 12px; 
+            text-align: center; 
+        }
+
+        nav a { 
+            margin: 0 15px; 
+            text-decoration: none; 
+            color: #F5F5DC; 
+            font-weight: bold; 
+            text-transform: uppercase;
+        }
+
+        .main-container { padding: 40px 5%; max-width: 600px; margin: auto; }
+
+        .seccion-comentarios {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid #D2B48C;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+
+        label { display: block; margin-bottom: 5px; font-weight: bold; color: #5D4037; }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #D2B48C;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #5D4037;
+            color: #F5F5DC;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        /* Estilo de los comentarios que se van agregando */
+        .comentario-item {
+            background: #ffffff;
+            padding: 15px;
+            border-left: 5px solid #D2B48C;
+            margin-bottom: 15px;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .comentario-item strong { color: #8B4513; display: block; margin-bottom: 5px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>MAURINEPT</h1>
+    </header>
+    
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="Cocina.html">Cocinas</a>
+        <a href="Closets.html">Closets</a>
+    </nav>
+
+    <div class="main-container">
+        <section class="seccion-comentarios">
+            <h2 style="color:#5D4037; text-align:center;">Deja tu Comentario</h2>
+            <form id="form-comentario">
+                <label>Correo Electrónico:</label>
+                <input type="email" id="email" required placeholder="tu@correo.com">
+
+                <label>Mensaje:</label>
+                <textarea id="mensaje" rows="4" required placeholder="Escribe aquí..."></textarea>
+
+                <button type="submit">Enviar Comentario</button>
+            </form>
+        </section>
+
+        <div id="lista-comentarios">
+            <h3 style="color: #5D4037; border-bottom: 2px solid #D2B48C; padding-bottom: 10px;">Comentarios de Clientes</h3>
+            <div id="contenedor-items">
+                </div>
+        </div>
+    </div>
+
+    <script>
+        const formulario = document.getElementById('form-comentario');
+        const contenedor = document.getElementById('contenedor-items');
+
+        // 1. CARGAR AL ABRIR: Busca si hay algo guardado en el celular
+        window.onload = function() {
+            const guardados = JSON.parse(localStorage.getItem('comentariosMauriNept')) || [];
+            // Los recorremos para dibujarlos en pantalla
+            guardados.forEach(dato => {
+                crearElementoComentario(dato.correo, dato.texto);
+            });
+        };
+
+        // 2. EVENTO AL PULSAR ENVIAR
+        formulario.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const correo = document.getElementById('email').value;
+            const texto = document.getElementById('mensaje').value;
+
+            // Guardar en la memoria del teléfono
+            const guardados = JSON.parse(localStorage.getItem('comentariosMauriNept')) || [];
+            guardados.push({ correo: correo, texto: texto });
+            localStorage.setItem('comentariosMauriNept', JSON.stringify(guardados));
+
+            // Mostrarlo en la lista abajo inmediatamente
+            crearElementoComentario(correo, texto);
+
+            // Limpiar el formulario
+            formulario.reset();
+        });
+
+        // 3. FUNCIÓN PARA CREAR EL CUADRITO DEL COMENTARIO
+        function crearElementoComentario(correo, texto) {
+            const div = document.createElement('div');
+            div.classList.add('comentario-item');
+            div.innerHTML = `<strong>${correo} dice:</strong><p>${texto}</p>`;
+            
+            // "prepend" pone el nuevo arriba. Si quieres que vayan hacia abajo, usa "appendChild"
+            contenedor.prepend(div); 
+        }
+    </script>
+
+</body>
+</html>

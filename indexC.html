@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora PVP Pro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="calculator">
+        <input type="text" id="product-name" placeholder="Nombre del producto" list="products-list">
+        <datalist id="products-list"></datalist>
+        
+        <div id="display-results">
+            <div id="calc-formula">0 / 1 + 0% + 30%</div>
+            <div id="pvp-result">PVP: 0.00</div>
+        </div>
+
+        <div class="grid-container">
+            <button onclick="exportJSON()">JSON</button>
+            <button onclick="importJSON()">IMPORT</button>
+            <button onclick="toggleIVA()" id="btn-iva">IVA (0%)</button>
+            <button class="btn-gain" onclick="setGain(15)">15%</button>
+
+            <button onclick="appendNum(7)">7</button>
+            <button onclick="appendNum(8)">8</button>
+            <button onclick="appendNum(9)">9</button>
+            <button class="btn-gain" onclick="setGain(20)">20%</button>
+
+            <button onclick="appendNum(4)">4</button>
+            <button onclick="appendNum(5)">5</button>
+            <button onclick="appendNum(6)">6</button>
+            <button class="btn-gain" onclick="setGain(25)">25%</button>
+
+            <button onclick="appendNum(1)">1</button>
+            <button onclick="appendNum(2)">2</button>
+            <button onclick="appendNum(3)">3</button>
+            <button class="btn-gain" onclick="setGain(30)">30%</button>
+
+            <button onclick="clearAll()">C</button>
+            <button onclick="appendNum(0)">0</button>
+            <button onclick="saveProduct()" style="background: #2ecc71;">GUARDAR</button>
+            <button onclick="exportExcel()" style="background: #27ae60;">EXCEL</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

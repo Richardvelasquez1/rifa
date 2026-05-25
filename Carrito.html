@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MauriNept - Carrito de Compra</title>
+    <style>
+        /* Estilos Base */
+        body { 
+            font-family: 'Segoe UI', Arial, sans-serif; 
+            margin: 0; padding: 20px; 
+            color: #333; background-color: #FAF9F6; 
+        }
+        
+        header { 
+            display: flex; align-items: center; 
+            border-bottom: 3px solid #5D4037; 
+            padding-bottom: 20px; background-color: #ffffff;
+            padding-left: 15px; border-radius: 8px;
+        }
+
+        header h1 { color: #5D4037; margin: 0; }
+        .logo { margin-right: 20px; }
+
+        nav { margin: 20px 0; background: #5D4037; padding: 12px; text-align: center; border-radius: 5px; }
+        nav a { margin: 0 15px; text-decoration: none; color: #F5F5DC; font-weight: bold; text-transform: uppercase; font-size: 13px; }
+
+        .seccion-carrito { background: white; padding: 20px; border-radius: 8px; border: 1px solid #D2B48C; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-bottom: 20px; }
+        .oculto { display: none; }
+
+        /* Formulario y Tablas */
+        .grid-form { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 30px; }
+        input, select { padding: 10px; border: 1px solid #D2B48C; border-radius: 4px; width: 100%; box-sizing: border-box; }
+        label { display: block; font-weight: bold; color: #5D4037; margin-bottom: 5px; }
+
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 0.85em; }
+        th { background: #5D4037; color: white; padding: 8px; }
+        td { border: 1px solid #D2B48C; padding: 8px; text-align: center; }
+        
+        .btn-comprar { 
+            background: #8B4513; color: white; border: none; padding: 12px 25px; 
+            cursor: pointer; border-radius: 5px; font-weight: bold; margin-top: 20px; width: 100%;
+        }
+        .btn-comprar:hover { background: #5D4037; }
+
+        /* Métodos de Pago */
+        .metodos-pago { text-align: center; }
+        .opciones-pago { display: flex; justify-content: space-around; margin: 20px 0; }
+        .pago-card { border: 2px solid #D2B48C; padding: 10px; border-radius: 8px; cursor: pointer; width: 30%; }
+
+        /* Historial de Ventas Específico - MEJORADO PARA MÓVIL */
+        .contenedor-historial {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px dashed #D2B48C;
+            text-align: left;
+        }
+        .titulo-historial { color: #5D4037; font-size: 1.2em; margin-bottom: 10px; display: block; }
+
+        /* Contenedor para evitar que la tabla se salga del cuadro */
+        .tabla-responsiva {
+            width: 100%;
+            overflow-x: auto; /* Permite scroll horizontal si es necesario */
+            border-radius: 4px;
+        }
+
+        /* Reducción del tamaño de la tabla del historial */
+        #lista-ventas table {
+            font-size: 0.75em; /* Más pequeña para móvil */
+            min-width: 400px; /* Asegura que los datos no se encimen */
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="Logomaurynept2.png" alt="Logo" width="80">
+        </div>
+        <div>
+            <h1>MAURINEPT</h1>
+            <p><i>Formulario de Pedido y Pago</i></p>
+        </div>
+    </header>
+
+    <nav>
+        <a href="#">Inicio</a>
+        <a href="#">Nosotros</a>
+        <a href="#">Contacto</a>
+    </nav>
+
+    <div id="pantalla-datos" class="seccion-carrito">
+        <h2 style="color: #5D4037;">1. Datos del Cliente</h2>
+        <div class="grid-form">
+            <div>
+                <label>Nombre Completo</label>
+                <input type="text" id="nombre" placeholder="Ej. Juan Pérez">
+            </div>
+            <div>
+                <label>Cédula</label>
+                <input type="text" id="cedula" placeholder="V-00.000.000">
+            </div>
+            <div>
+                <label>Teléfono</label>
+                <input type="tel" id="telefono" placeholder="0412-0000000">
+            </div>
+            <div>
+                <label>Correo Electronico</label>
+                <input type="text" id="profesion" placeholder="Ej. Maurynept@">
+            </div>
+            <div style="grid-column: span 2;">
+                <label>Dirección de Entrega</label>
+                <input type="email" id="direccion" placeholder="Calle, Sector, Ciudad...">
+            </div>
+        </div>
+
+        <h2 style="color: #5D4037;">2. Seleccione su Producto</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Precio</th>
+                    <th>Seleccionar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Cocina Moderna</td>
+                    <td>$1.200</td>
+                    <td><input type="radio" name="producto" value="Cocina Moderna" data-precio="1200"></td>
+                </tr>
+                <tr>
+                    <td>Closet a Medida</td>
+                    <td>$650</td>
+                    <td><input type="radio" name="producto" value="Closet a Medida" data-precio="650"></td>
+                </tr>
+                <tr>
+                    <td>Mueble de Oficina</td>
+                    <td>$350</td>
+                    <td><input type="radio" name="producto" value="Mueble de Oficina" data-precio="350"></td>
+                </tr>
+            </tbody>
+        </table>
+        <button class="btn-comprar" onclick="irAPagar()">CONTINUAR AL PAGO</button>
+    </div>
+
+    <div id="pantalla-pago" class="seccion-carrito oculto">
+        <h2 style="color: #5D4037; text-align: center;">3. Método de Pago</h2>
+        <div class="metodos-pago">
+            <p>Total a pagar: <strong id="monto-total">$0</strong></p>
+            <div class="opciones-pago">
+                <div class="pago-card">
+                    <input type="radio" name="metodo" value="Transferencia" id="m1">
+                    <label for="m1">Transferencia</label>
+                </div>
+                <div class="pago-card">
+                    <input type="radio" name="metodo" value="Efectivo" id="m2">
+                    <label for="m2">Efectivo</label>
+                </div>
+                <div class="pago-card">
+                    <input type="radio" name="metodo" value="Punto de Venta" id="m3">
+                    <label for="m3">Punto de Venta</label>
+                </div>
+            </div>
+
+            <button class="btn-comprar" onclick="finalizarCompra()">FINALIZAR Y GUARDAR VENTA</button>
+            <button style="background:none; border:none; color: #8B4513; cursor:pointer; margin-top:10px;" onclick="cancelar()">Volver Atrás</button>
+
+            <div class="contenedor-historial">
+                <b class="titulo-historial">Historial de Ventas Guardadas:</b>
+                <div class="tabla-responsiva">
+                    <div id="lista-ventas">
+                        <p style="font-size: 0.9em; color: gray;">No hay ventas previas en el historial.</p>
+                    </div>
+                </div>
+                <button onclick="limpiarHistorial()" style="margin-top:20px; color:red; background:none; border:none; font-size:10px; cursor:pointer;">Borrar historial permanente</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', renderizarHistorial);
+
+        function irAPagar() {
+            const nombre = document.getElementById('nombre').value;
+            const productoSel = document.querySelector('input[name="producto"]:checked');
+
+            if (!nombre || !productoSel) {
+                alert("Por favor rellene sus datos y seleccione un producto");
+                return;
+            }
+
+            document.getElementById('monto-total').innerText = "$" + productoSel.getAttribute('data-precio');
+            document.getElementById('pantalla-datos').classList.add('oculto');
+            document.getElementById('pantalla-pago').classList.remove('oculto');
+        }
+
+        function finalizarCompra() {
+            const metodo = document.querySelector('input[name="metodo"]:checked');
+            if (!metodo) {
+                alert("Seleccione un método de pago");
+                return;
+            }
+
+            const productoSel = document.querySelector('input[name="producto"]:checked');
+
+            const venta = {
+                cliente: document.getElementById('nombre').value,
+                producto: productoSel.value,
+                monto: productoSel.getAttribute('data-precio'),
+                pago: metodo.value,
+                fecha: new Date().toLocaleDateString() // CAMBIO: Fecha corta (DD/MM/AAAA)
+            };
+
+            let historial = JSON.parse(localStorage.getItem('maurinept_ventas')) || [];
+            historial.unshift(venta); 
+            localStorage.setItem('maurinept_ventas', JSON.stringify(historial));
+
+            alert("Venta procesada y agregada al historial.");
+            renderizarHistorial();
+            document.getElementById('nombre').value = "";
+        }
+
+        function renderizarHistorial() {
+            const contenedor = document.getElementById('lista-ventas');
+            const historial = JSON.parse(localStorage.getItem('maurinept_ventas')) || [];
+
+            if (historial.length === 0) return;
+
+            let tablaHTML = `<table>
+                <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Cliente</th>
+                        <th>Producto</th>
+                        <th>Monto</th>
+                        <th>Pago</th>
+                    </tr>
+                </thead>
+                <tbody>`;
+
+            historial.forEach(item => {
+                tablaHTML += `
+                    <tr>
+                        <td>${item.fecha}</td>
+                        <td>${item.cliente}</td>
+                        <td>${item.producto}</td>
+                        <td>$${item.monto}</td>
+                        <td>${item.pago}</td>
+                    </tr>`;
+            });
+
+            tablaHTML += `</tbody></table>`;
+            contenedor.innerHTML = tablaHTML;
+        }
+
+        function cancelar() {
+            document.getElementById('pantalla-pago').classList.add('oculto');
+            document.getElementById('pantalla-datos').classList.remove('oculto');
+        }
+
+        function limpiarHistorial() {
+            if(confirm("¿Seguro que quieres borrar todas las ventas guardadas?")) {
+                localStorage.removeItem('maurinept_ventas');
+                location.reload();
+            }
+        }
+    </script>
+
+</body>
+</html>

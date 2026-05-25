@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosotros - MauriNept</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Arial, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            color: #333333; 
+            background-color: #FAF9F6; 
+        }
+
+        header { 
+            display: flex; 
+            align-items: center; 
+            border-bottom: 3px solid #5D4037; 
+            padding: 20px 5%; 
+            background-color: #ffffff;
+        }
+
+        header h1 { color: #5D4037; margin: 0; }
+
+        nav { 
+            background: #5D4037; 
+            padding: 12px; 
+            text-align: center; 
+        }
+
+        nav a { 
+            margin: 0 15px; 
+            text-decoration: none; 
+            color: #F5F5DC; 
+            font-weight: bold; 
+            text-transform: uppercase;
+        }
+
+        .hero-nosotros {
+            background-color: #5D4037;
+            color: #F5F5DC;
+            padding: 60px 5%;
+            text-align: center;
+        }
+
+        .main-container { padding: 40px 5%; max-width: 900px; margin: auto; }
+
+        .historia-seccion {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            margin-bottom: 50px;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid #D2B48C;
+        }
+
+        .texto-historia { flex: 2; }
+        .texto-historia h2 { color: #8B4513; border-bottom: 2px solid #D2B48C; padding-bottom: 10px; }
+
+        .info-cuadros {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .cuadro {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            border-top: 4px solid #8B4513;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        }
+
+        .cuadro h4 { margin-top: 0; color: #5D4037; }
+
+        .horario-ubi {
+            background: #EADDCA; /* Un tono madera muy claro */
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        footer {
+            background: #5D4037;
+            color: #F5F5DC;
+            text-align: center;
+            padding: 20px;
+            margin-top: 60px;
+        }
+
+        @media (max-width: 768px) {
+            .historia-seccion { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>MAURINEPT</h1>
+    </header>
+    
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="Cocinas.html">Cocinas</a>
+        <a href="Closets.html">Closets</a>
+        <a href="Comentarios.html">Comentarios</a>
+    </nav>
+
+    <section class="hero-nosotros">
+        <h1>Nuestra Historia</h1>
+        <p>Tradición familiar convertida en arte para tu hogar.</p>
+    </section>
+
+    <div class="main-container">
+        
+        <section class="historia-seccion">
+            <div class="texto-historia">
+                <h2>Origen de un Sueño</h2>
+                <p><strong>MauriNept Carpintería</strong> nace en el año 2026 bajo la visión emprendedora de <strong>Samuel Josué Velásquez Mejía</strong>. Lo que comenzó como un proyecto personal, rápidamente se transformó en una propuesta de vanguardia para el mercado merideño.</p>
+                
+                <p>El nombre <strong>MauriNept</strong> no es casualidad; es un tributo viviente a la sabiduría y el legado de sus abuelos, <strong>Maura y Neptalí</strong>. Sus valores de honestidad, trabajo duro y atención al detalle son los pilares sobre los que construimos cada mueble que sale de nuestro taller.</p>
+            </div>
+            <div style="flex:1; text-align:center;">
+                <img src="Maura.jpg" alt="Legado Familiar" style="width:100%; border-radius:10px; box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
+            </div>
+        </section>
+
+        <div class="info-cuadros">
+            <div class="cuadro">
+                <h4>Nuestra Misión</h4>
+                <p>Transformar espacios a través de soluciones de carpintería personalizadas, utilizando materiales de primera calidad y técnicas de innovación para superar las expectativas de cada cliente en Mérida.</p>
+            </div>
+            <div class="cuadro">
+                <h4>Nuestra Visión</h4>
+                <p>Ser reconocidos en el 2030 como la carpintería líder en innovación y diseño de interiores en la región andina, destacando por nuestro compromiso familiar y excelencia artesanal.</p>
+            </div>
+        </div>
+
+        <section class="horario-ubi">
+            <h3>¿Dónde encontrarnos?</h3>
+            <p>📍 <strong>Ubicación:</strong> Urb. Valmar de Ejido, sector La "Don Luis", Mérida - Venezuela.</p>
+            <p>⏰ <strong>Horario de Atención:</strong><br>
+               Lunes a Viernes: 7:00 AM - 6:00 PM</p>
+            <p><i>¡Visítanos y diseñemos juntos el mueble de tus sueños!</i></p>
+        </section>
+
+    </div>
+
+    <footer>
+        <p><strong>MauriNept Carpintería</strong> - Tradición que Innova</p>
+    </footer>
+
+</body>
+</html>

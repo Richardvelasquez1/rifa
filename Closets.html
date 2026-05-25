@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelos de Closets - MauriNept</title>
+    <style>
+        /* Estilo profesional coherente con MauriNept */
+        body { 
+            font-family: 'Segoe UI', Arial, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            color: #333333; 
+            background-color: #FAF9F6; 
+        }
+
+        /* Encabezado: Logo + Nombre + Slogan */
+        header { 
+            display: flex; 
+            align-items: center; 
+            border-bottom: 3px solid #5D4037; 
+            padding-bottom: 20px; 
+            background-color: #ffffff;
+            padding-left: 15px;
+        }
+
+        header h1 { color: #5D4037; margin-bottom: 5px; }
+        header p { color: #8B4513; margin-top: 0; }
+
+        .logo { 
+            width: 100px; 
+            height: 100px; 
+            margin-right: 20px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+        }
+        
+        /* Botones de Menú */
+        nav { 
+            margin: 5px 0 20px 0; 
+            background: #5D4037; 
+            padding: 12px; 
+            text-align: center; 
+        }
+
+        nav a { 
+            margin: 0 15px; 
+            text-decoration: none; 
+            color: #F5F5DC; 
+            font-weight: bold; 
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+
+        nav a:hover { color: #ffffff; }
+
+        .main-container { padding: 0 5%; max-width: 1200px; margin: auto; }
+
+        .intro { text-align: center; margin-top: 40px; margin-bottom: 40px; }
+        .intro h2 { color: #8B4513; font-size: 28px; }
+        .intro p { color: #666; font-style: italic; }
+
+        /* Tarjetas de Modelos */
+        .tarjeta-closet {
+            display: flex;
+            background: white;
+            margin-bottom: 30px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #D2B48C;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.05);
+        }
+
+        .img-container { width: 45%; background: #eee; min-height: 250px; }
+        .img-container img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+        .info-container {
+            width: 55%;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .info-container h3 { 
+            color: #5D4037; 
+            margin-top: 0; 
+            font-size: 22px;
+            border-left: 4px solid #D2B48C;
+            padding-left: 15px;
+        }
+
+        .info-container p { line-height: 1.7; color: #444; font-size: 15px; }
+
+        /* Pie de página */
+        footer {
+            background: #5D4037;
+            color: #F5F5DC;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+        }
+
+        .social-links { margin-top: 15px; }
+        .social-links a {
+            color: #D2B48C;
+            text-decoration: none;
+            margin: 0 12px;
+            font-weight: bold;
+        }
+        .social-links a:hover { color: #ffffff; }
+
+        /* Ajuste para dispositivos móviles */
+        @media (max-width: 768px) {
+            .tarjeta-closet { flex-direction: column; }
+            .img-container, .info-container { width: 100%; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="Logomaurynept2.png" alt="Logo MauriNept" width="100">
+        </div>
+        <div>
+            <h1>MAURINEPT</h1>
+            <p><i>Innovando tu espacio, pieza a pieza</i></p>
+        </div>
+    </header>
+    
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="Cocina.html">Cocinas</a>
+        <a href="Contacto.html">Contacto</a>
+    </nav>
+
+    <div class="main-container">
+        <div class="intro">
+            <h2>Soluciones de Almacenamiento</h2>
+            <p>Diseño y fabricación de closets a medida, optimizando cada centímetro de tu habitación.</p>
+        </div>
+
+        <div class="tarjeta-closet">
+            <div class="img-container">
+                <img src="ClosetsE.jpeg" alt="Closet Empotrado">
+            </div>
+            <div class="info-container">
+                <h3>1. Empotrados (Built-in)</h3>
+                <p>Nuestros closets empotrados se integran perfectamente a la arquitectura de tu habitación. Diseñados de pared a pared y de suelo a techo, aprovechan los nichos existentes para ofrecer una apariencia limpia y minimalista, ocultando cualquier irregularidad de las paredes.</p>
+            </div>
+        </div>
+
+        <div class="tarjeta-closet">
+            <div class="img-container">
+                <img src="ClosetsV.jpeg" alt="Vestidor Walk-in">
+            </div>
+            <div class="info-container">
+                <h3>2. Vestidores (Walk-in Closets)</h3>
+                <p>La máxima expresión de lujo y comodidad. Creamos espacios dedicados donde cada prenda tiene su lugar. Incluimos organizadores de calzado, islas centrales, espejos con iluminación LED y cajoneras con guías telescópicas para una experiencia de vestidor completa.</p>
+            </div>
+        </div>
+
+        <div class="tarjeta-closet">
+            <div class="img-container">
+                <img src="ClosetsEx.jpeg" alt="Closet Modular">
+            </div>
+            <div class="info-container">
+                <h3>3. Modulares o Exentos</h3>
+                <p>Versatilidad y rapidez. Estos sistemas permiten configurar el interior según tus necesidades actuales y futuras. Son ideales para quienes buscan una solución elegante que pueda ser adaptada o incluso trasladada, siempre manteniendo la calidad artesanal de MauriNept.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p><strong>MauriNept Carpintería</strong> - Mérida, Venezuela</p>
+        <p><small>Ubicados en el sector "Don Luis"</small></p>
+        <div class="social-links">
+            <a href="#">Instagram</a>
+            <a href="#">Facebook</a>
+            <a href="#">WhatsApp</a>
+        </div>
+    </footer>
+
+</body>
+</html>

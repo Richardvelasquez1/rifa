@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - MauriNept</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Arial, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            color: #333333; 
+            background-color: #FAF9F6; 
+        }
+
+        header { 
+            display: flex; 
+            align-items: center; 
+            border-bottom: 3px solid #5D4037; 
+            padding: 20px 5%; 
+            background-color: #ffffff;
+        }
+
+        header h1 { color: #5D4037; margin: 0; }
+
+        nav { 
+            background: #5D4037; 
+            padding: 12px; 
+            text-align: center; 
+        }
+
+        nav a { 
+            margin: 0 15px; 
+            text-decoration: none; 
+            color: #F5F5DC; 
+            font-weight: bold; 
+            text-transform: uppercase;
+        }
+
+        .main-container { padding: 40px 5%; max-width: 1100px; margin: auto; }
+
+        .contacto-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .tarjeta-contacto {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid #D2B48C;
+            text-align: center;
+            transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .tarjeta-contacto:hover { transform: translateY(-5px); }
+
+        .tarjeta-contacto h3 { color: #8B4513; margin-bottom: 15px; }
+
+        .img-youtube {
+            width: 80px;
+            height: auto;
+            margin: 10px 0;
+        }
+
+        .btn-contacto {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 12px 25px;
+            background-color: #5D4037;
+            color: #F5F5DC;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            width: 80%;
+        }
+
+        .btn-whatsapp { background-color: #25D366; color: white; }
+        .btn-facebook { background-color: #1877F2; color: white; }
+        .btn-youtube { background-color: #FF0000; color: white; }
+
+        .ubicacion-texto {
+            margin-top: 50px;
+            text-align: center;
+            padding: 20px;
+            background: #EADDCA;
+            border-radius: 15px;
+        }
+
+        footer {
+            background: #5D4037;
+            color: #F5F5DC;
+            text-align: center;
+            padding: 20px;
+            margin-top: 60px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>MAURINEPT</h1>
+    </header>
+    
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="Nosotros.html">Nosotros</a>
+        <a href="Comentarios.html">Comentarios</a>
+    </nav>
+
+    <div class="main-container">
+        <div style="text-align: center; margin-bottom: 40px;">
+            <h2 style="color: #5D4037;">¡Hagamos realidad tu proyecto!</h2>
+            <p>Estamos listos para asesorarte en el diseño de tus muebles en Mérida.</p>
+        </div>
+
+        <div class="contacto-grid">
+            <div class="tarjeta-contacto">
+                <div>
+                    <h3>Llamadas y WhatsApp</h3>
+                    <p>Atención personalizada inmediata:</p>
+                    <p><strong>0424-7326375</strong></p>
+                </div>
+                <div style="width: 100%;">
+                    <a href="https://wa.me/584247326375?text=Hola%20MauriNept,%20quisiera%20solicitar%20un%20presupuesto" class="btn-contacto btn-whatsapp">Chatear por WhatsApp</a>
+                    <a href="tel:04247326375" class="btn-contacto">Llamar Ahora</a>
+                </div>
+            </div>
+
+            <div class="tarjeta-contacto">
+                <div>
+                    <h3>Redes y Correo</h3>
+                    <p>Envíanos tus planos o ideas:</p>
+                    <p><strong>yalitzamejia0608@gmail.com</strong></p>
+                </div>
+                <div style="width: 100%;">
+                    <a href="mailto:yalitzamejia0608@gmail.com" class="btn-contacto">Enviar Correo</a>
+                    <a href="https://facebook.com/yalitzamejia0608" class="btn-contacto btn-facebook" target="_blank">Facebook Oficial</a>
+                </div>
+            </div>
+
+            <div class="tarjeta-contacto">
+                <div>
+                    <h3>Nuestro Canal</h3>
+                    <p>Mira nuestros trabajos y videos de carpintería en YouTube:</p>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png" alt="Logo de YouTube" class="img-youtube">
+                </div>
+                <div style="width: 100%;">
+                    <a href="https://www.youtube.com/@velasquezR01" class="btn-contacto btn-youtube" target="_blank">Ver Videos en YouTube</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="ubicacion-texto">
+            <h4>Visítanos en nuestro taller</h4>
+            <p>Urb. Valmar de Ejido, sector La "Don Luis"<br>
+            Mérida, Venezuela</p>
+            <p><small>Horario: Lunes a Viernes de 7:00 am a 6:00 pm</small></p>
+        </div>
+    </div>
+
+    <footer>
+        <p><strong>MauriNept Carpintería</strong> - Mérida 2026</p>
+    </footer>
+
+</body>
+</html>
