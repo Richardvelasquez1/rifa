@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - MauriNept</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Arial, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            color: #333333; 
+            background-color: #FAF9F6; 
+        }
+
+        header { 
+            display: flex; 
+            align-items: center; 
+            border-bottom: 3px solid #5D4037; 
+            padding: 20px 5%; 
+            background-color: #ffffff;
+        }
+
+        header h1 { color: #5D4037; margin: 0; }
+
+        nav { 
+            background: #5D4037; 
+            padding: 12px; 
+            text-align: center; 
+        }
+
+        nav a { 
+            margin: 0 15px; 
+            text-decoration: none; 
+            color: #F5F5DC; 
+            font-weight: bold; 
+            text-transform: uppercase;
+        }
+
+        .main-container { padding: 40px 5%; max-width: 1100px; margin: auto; }
+
+        .contacto-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .tarjeta-contacto {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid #D2B48C;
+            text-align: center;
+            transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .tarjeta-contacto:hover { transform: translateY(-5px); }
+
+        .tarjeta-contacto h3 { color: #8B4513; margin-bottom: 15px; }
+
+        .img-social {
+            width: 80px;
+            height: auto;
+            margin: 10px 0;
+        }
+
+        .btn-contacto {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 12px 20px;
+            background-color: #5D4037;
+            color: #F5F5DC;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            width: 85%;
+            font-size: 0.95rem;
+        }
+
+        .btn-whatsapp { background-color: #25D366; color: white; }
+        .btn-facebook { background-color: #1877F2; color: white; }
+        .btn-youtube { background-color: #FF0000; color: white; }
+        .btn-tiktok { background-color: #010101; color: white; }
+        .btn-instagram { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: white; }
+
+        .contenedor-botones-redes {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2px;
+        }
+
+        .ubicacion-texto {
+            margin-top: 50px;
+            text-align: center;
+            padding: 20px;
+            background: #EADDCA;
+            border-radius: 15px;
+        }
+
+        footer {
+            background: #5D4037;
+            color: #F5F5DC;
+            text-align: center;
+            padding: 20px;
+            margin-top: 60px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>MAURINEPT</h1>
+    </header>
+    
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="Nosotros.html">Nosotros</a>
+        <a href="Comentarios.html">Comentarios</a>
+    </nav>
+
+    <div class="main-container">
+        <div style="text-align: center; margin-bottom: 40px;">
+            <h2 style="color: #5D4037;">¡Hagamos realidad tu proyecto!</h2>
+            <p>Estamos listos para asesorarte en el diseño de tus muebles en Mérida.</p>
+        </div>
+
+        <div class="contacto-grid">
+            
+            <!-- TARJETA DE WHATSAPP -->
+            <div class="tarjeta-contacto">
+                <div>
+                    <h3>Novedades por WhatsApp</h3>
+                    <p>¡Agrega nuestro número a tus contactos para ver en nuestros <b>Estados</b> los 3 videos y 2 flyers con lo último en tendencias!</p>
+                    <p><strong>0414-9778514</strong></p>
+                </div>
+                <div style="width: 100%;">
+                    <a href="whatsapp://send?phone=584149778514&text=Hola%20MauriNept,%20vengo%20de%20la%20web%20y%20ya%20los%20agregu%C3%A9%20a%20mis%20contactos%20para%20ver%20los%20videos%20y%20flyers%20en%20sus%20Estados." class="btn-contacto btn-whatsapp">Ver Estados y Novedades</a>
+                    <a href="tel:04149778514" class="btn-contacto">Llamar Ahora</a>
+                </div>
+            </div>
+
+            <!-- TARJETA DE FACEBOOK (ENLACE OPTIMIZADO PARA MÓVILES) -->
+            <div class="tarjeta-contacto">
+                <div>
+                    <h3>Galería en Facebook..</h3>
+                    <p>Visita nuestro set destacado con la combinación de los 4 videos de demostración y 2 flyers de diseño exclusivo:</p>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/2021_Facebook_icon.svg" alt="Logo de Facebook" class="img-social">
+                </div>
+                <div style="width: 100%;">
+                    <!-- PEGA AQUÍ TU ENLACE DIRECTO DE PERMALINK O DE LA PUBLICACIÓN DE TU PÁGINA -->
+                    <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid08e6EsL5aWrbswjUzrVCDmpL6kcEhBBr8SssRrE2oJToiwdsWEDaZ5vmo93E3ix9El&id=61591162734239" class="btn-contacto btn-facebook" target="_blank">Ver Contenido en Facebook</a>
+                </div>
+            </div>
+
+            <!-- TARJETA DE YOUTUBE -->
+            <div class="tarjeta-contacto">
+                <div>
+                    <h3>Nuestro Canal de YouTube</h3>
+                    <p>Mira nuestra lista de reproducción especial con los 3 videos informativos y los 2 flyers de la semana:</p>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png" alt="Logo de YouTube" class="img-social">
+                </div>
+                <div style="width: 100%;">
+                    <a href="https://youtube.com/playlist?list=PLM1k27gAEgNfK2VcKGlcc2NdpfH6xrx65" class="btn-contacto btn-youtube" target="_blank">Reproducir Videos y Flyers</a>
+                </div>
+            </div>
+
+            <!-- TARJETA DE TIKTOK -->
+            <div class="tarjeta-contacto">
+                <div>
+                    <h3>Nuestro TikTok</h3>
+                    <p>Explora de forma individual nuestros contenidos interactivos y tips de diseño:</p>
+                    <img src="https://upload.wikimedia.org/wikipedia/en/a/a9/TikTok_logo.svg" alt="Logo de TikTok" class="img-social" style="width: 65px; margin: 5px 0;">
+                </div>
+                <div class="contenedor-botones-redes">
+                    <a href="#video1" class="btn-contacto btn-tiktok" target="_blank">▶ Muebles Video 1</a>
+                    <a href="#video2" class="btn-contacto btn-tiktok" target="_blank">▶ Muebles Video 2</a>
+                    <a href="#video3" class="btn-contacto btn-tiktok" target="_blank">▶ Muebles Video 3</a>
+                    <a href="#flyer1" class="btn-contacto btn-tiktok" target="_blank">📄 Flyer Tendencias 1</a>
+                    <a href="#flyer2" class="btn-contacto btn-tiktok" target="_blank">📄 Flyer Tendencias 2</a>
+                </div>
+            </div>
+
+            <!-- TARJETA DE INSTAGRAM -->
+            <div class="tarjeta-contacto">
+                <div>
+                    <h3>Nuestro Instagram</h3>
+                    <p>Revisa las últimas publicaciones de nuestros proyectos detallados paso a paso:</p>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" alt="Logo de Instagram" class="img-social" style="width: 65px; margin: 5px 0;">
+                </div>
+                <div class="contenedor-botones-redes">
+                    <a href="https://www.instagram.com/reel/DZ-VaxXg8c2/?igsh=anAxdHB6YTZ0dmQy" class="btn-contacto btn-instagram" target="_blank">▶ Muebles Video 1</a>
+                    <a href="https://www.instagram.com/reel/DZ-WGm2Aqxr/?igsh=MTJpZWR3cHpwZ2k2Mg==" class="btn-contacto btn-instagram" target="_blank">▶ Muebles Video 2</a>
+                    <a href="https://www.instagram.com/reel/DZ-WPw9g-CA/?igsh=MWk5cDc1MjJocnM1eg==" class="btn-contacto btn-instagram" target="_blank">▶ Muebles Video 3</a>
+                    <a href="https://www.instagram.com/reel/DZ-WYtZAtbV/?igsh=bTZ3MHY4MGw0cjU4" class="btn-contacto btn-instagram" target="_blank">📄 Flyer Tendencias 1</a>
+                    <a href="https://www.instagram.com/reel/DZ-Wjl-g7h2/?igsh=ZjlxdTE5Y3NiYjhp" class="btn-contacto btn-instagram" target="_blank">📄 Flyer Tendencias 2</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN DE CONTACTO DIRECTO / CORREO -->
+        <div style="text-align: center; margin-top: 40px;">
+            <p style="margin-bottom: 5px;">¿Prefieres enviarnos tus planos directos por correo electrónico?</p>
+            <p><strong>yalitzamejia0608@gmail.com</strong></p>
+            <a href="mailto:yalitzamejia0608@gmail.com" class="btn-contacto" style="width: auto; padding: 10px 30px;">Enviar Correo</a>
+        </div>
+
+        <div class="ubicacion-texto">
+            <h4>Visítanos en nuestro taller</h4>
+            <p>Urb. Valmar de Ejido, sector La "Don Luis"<br>
+            Mérida, Venezuela</p>
+            <p><small>Horario: Lunes a Viernes de 7:00 am a 6:00 pm</small></p>
+        </div>
+    </div>
+
+    <footer>
+        <p><strong>MauriNept Carpintería</strong> - Mérida 2026</p>
+    </footer>
+
+</body>
+</html>
