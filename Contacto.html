@@ -88,8 +88,8 @@
         .btn-tiktok { background-color: #010101; color: white; }
         .btn-instagram { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: white; }
 
-        /* Estilo más compacto para cuando hay varios botones juntos en TikTok */
-        .contenedor-botones-tiktok {
+        /* Contenedor compacto para optimizar espacio en tarjetas con múltiples botones */
+        .contenedor-botones-redes {
             width: 100%;
             display: flex;
             flex-direction: column;
@@ -178,28 +178,38 @@
                     <p>Explora de forma individual nuestros contenidos interactivos y tips de diseño:</p>
                     <img src="https://upload.wikimedia.org/wikipedia/en/a/a9/TikTok_logo.svg" alt="Logo de TikTok" class="img-social" style="width: 65px; margin: 5px 0;">
                 </div>
-                <div class="contenedor-botones-tiktok">
+                <div class="contenedor-botones-redes">
                     <!-- Reemplaza el '#' de cada href por tu enlace real de TikTok -->
-                    <a href="https://vt.tiktok.com/ZSCR3KQVC/" class="btn-contacto btn-tiktok" target="_blank">▶ MyN Video 1</a>
-                    <a href="https://vt.tiktok.com/ZSCRTVmNJ/" class="btn-contacto btn-tiktok" target="_blank">▶ MyN Video 2</a>
-                    <a href="https://vt.tiktok.com/ZSCRwy8ps/ " class="btn-contacto btn-tiktok" target="_blank">▶ MyN Video 3</a>
-                    <a href="https://vt.tiktok.com/ZSCRTo7nT/" class="btn-contacto btn-tiktok" target="_blank">📄 Flyer Tendencias 1</a>
-                    <a href="https://vt.tiktok.com/ZSCRwqFjV/" class="btn-contacto btn-tiktok" target="_blank">📄 Flyer Tendencias 2</a>
+                    <a href="#video1" class="btn-contacto btn-tiktok" target="_blank">▶ Muebles Video 1</a>
+                    <a href="#video2" class="btn-contacto btn-tiktok" target="_blank">▶ Muebles Video 2</a>
+                    <a href="#video3" class="btn-contacto btn-tiktok" target="_blank">▶ Muebles Video 3</a>
+                    <a href="#flyer1" class="btn-contacto btn-tiktok" target="_blank">📄 Flyer Tendencias 1</a>
+                    <a href="#flyer2" class="btn-contacto btn-tiktok" target="_blank">📄 Flyer Tendencias 2</a>
                 </div>
             </div>
 
-            <!-- TARJETA DE INSTAGRAM / CORREO -->
+            <!-- TARJETA DE INSTAGRAM (YA INTEGRADA CON TUS ENLACES REALES) -->
             <div class="tarjeta-contacto">
                 <div>
-                    <h3>Contacto Directo</h3>
-                    <p>Escríbenos por Instagram o envíanos tus planos por correo:</p>
-                    <p><small>yalitzamejia0608@gmail.com</small></p>
+                    <h3>Nuestro Instagram</h3>
+                    <p>Revisa las últimas publicaciones de nuestros proyectos detallados paso a paso:</p>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" alt="Logo de Instagram" class="img-social" style="width: 65px; margin: 5px 0;">
                 </div>
-                <div style="width: 100%;">
-                    <a href="https://www.instagram.com/reel/DYxLsQNgpCq/?igsh=eGo3ajE4Y3UzOXl0" class="btn-contacto btn-instagram" target="_blank">Instagram Oficial</a>
-                    <a href="mailto:yalitzamejia0608@gmail.com" class="btn-contacto">Enviar Correo</a>
+                <div class="contenedor-botones-redes">
+                    <a href="https://www.instagram.com/reel/DZ-VaxXg8c2/?igsh=anAxdHB6YTZ0dmQy" class="btn-contacto btn-instagram" target="_blank">▶ Muebles Video 1</a>
+                    <a href="https://www.instagram.com/reel/DZ-WGm2Aqxr/?igsh=MTJpZWR3cHpwZ2k2Mg==" class="btn-contacto btn-instagram" target="_blank">▶ Muebles Video 2</a>
+                    <a href="https://www.instagram.com/reel/DZ-WPw9g-CA/?igsh=MWk5cDc1MjJocnM1eg==" class="btn-contacto btn-instagram" target="_blank">▶ Muebles Video 3</a>
+                    <a href="https://www.instagram.com/reel/DZ-WYtZAtbV/?igsh=bTZ3MHY4MGw0cjU4" class="btn-contacto btn-instagram" target="_blank">📄 Flyer Tendencias 1</a>
+                    <a href="https://www.instagram.com/reel/DZ-Wjl-g7h2/?igsh=ZjlxdTE5Y3NiYjhp" class="btn-contacto btn-instagram" target="_blank">📄 Flyer Tendencias 2</a>
                 </div>
             </div>
+        </div>
+
+        <!-- SECCIÓN DE CONTACTO DIRECTO / CORREO -->
+        <div style="text-align: center; margin-top: 40px;">
+            <p style="margin-bottom: 5px;">¿Prefieres enviarnos tus planos directos por correo electrónico?</p>
+            <p><strong>yalitzamejia0608@gmail.com</strong></p>
+            <a href="mailto:yalitzamejia0608@gmail.com" class="btn-contacto" style="width: auto; padding: 10px 30px;">Enviar Correo</a>
         </div>
 
         <div class="ubicacion-texto">
